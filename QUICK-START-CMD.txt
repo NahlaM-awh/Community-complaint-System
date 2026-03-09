@@ -1,0 +1,79 @@
+================================================================================
+QUICK START GUIDE - Firebase Hosting via CMD
+================================================================================
+
+STEP 1: Open Command Prompt (CMD)
+-----------------------------------
+Press Windows Key + R, type "cmd", press Enter
+OR
+Search for "Command Prompt" in Start Menu
+
+
+STEP 2: Navigate to Your Project
+----------------------------------
+cd C:\Users\misri\OneDrive\Desktop\community-system
+
+
+STEP 3: Run Setup (First Time Only)
+-------------------------------------
+setup-firebase.bat
+
+This will:
+- Install Firebase CLI
+- Login to Firebase (opens browser)
+- Install dependencies
+
+
+STEP 4: Deploy
+---------------
+deploy.bat
+
+OR manually:
+firebase deploy
+
+
+STEP 5: Access Your Site
+--------------------------
+After deployment, visit:
+https://community-complaint-syst-73dc7.web.app
+
+
+================================================================================
+MANUAL COMMANDS (If Scripts Don't Work)
+================================================================================
+
+1. Install Firebase CLI:
+   npm install -g firebase-tools
+
+2. Login:
+   firebase login
+
+3. Install dependencies:
+   npm install
+
+4. Deploy:
+   firebase deploy
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: 'node' is not recognized
+Solution: Install Node.js from https://nodejs.org/
+
+Problem: 'firebase' is not recognized
+Solution: npm install -g firebase-tools
+
+Problem: Login failed
+Solution: firebase logout
+         firebase login
+
+Problem: Permission denied
+Solution: Check Firebase Console for project access
+
+
+================================================================================
+For detailed instructions, see: HOSTING-GUIDE.md
+================================================================================
+

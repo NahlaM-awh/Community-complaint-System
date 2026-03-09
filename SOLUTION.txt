@@ -1,0 +1,56 @@
+================================================================================
+WHY YOU'RE SEEING THE FIREBASE WELCOME PAGE
+================================================================================
+
+The problem: Your actual website files are NOT in the public/ directory.
+Firebase only deploys what's in the public/ folder.
+
+================================================================================
+QUICK FIX (Run in CMD):
+================================================================================
+
+1. Run this command:
+   fix-deployment.bat
+
+2. Then deploy:
+   firebase deploy --only hosting
+
+================================================================================
+WHAT THE SCRIPT DOES:
+================================================================================
+
+- Copies static/ folder → public/static/
+- Copies templates/ folder → public/templates/
+- Creates proper index.html that redirects to your home page
+
+================================================================================
+IMPORTANT NOTE:
+================================================================================
+
+Your templates use Flask's url_for() which won't work in static hosting.
+
+You have 2 options:
+
+OPTION 1: Quick Fix (Static files only)
+- Run: fix-deployment.bat
+- Deploy: firebase deploy --only hosting
+- Your site will show but backend won't work (no Flask)
+
+OPTION 2: Full Solution (Recommended)
+- Deploy Flask backend to Render/Railway (FREE)
+- Update templates to use relative paths
+- Deploy static files to Firebase
+- Everything works!
+
+================================================================================
+IMMEDIATE ACTION:
+================================================================================
+
+Run in CMD:
+   fix-deployment.bat
+   firebase deploy --only hosting
+
+This will at least show your website (even if backend doesn't work yet).
+
+================================================================================
+

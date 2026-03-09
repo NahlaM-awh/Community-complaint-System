@@ -1,0 +1,78 @@
+================================================================================
+DEPLOY TO FIREBASE HOSTING - SIMPLE GUIDE
+================================================================================
+
+STEP 1: Prepare Files
+-----------------------
+Run this command in CMD:
+
+    deploy-to-firebase.bat
+
+This will:
+- Convert Flask templates to static HTML
+- Copy all files to public/ directory
+- Deploy to Firebase
+
+OR manually:
+
+    python convert-templates.py
+    firebase deploy --only hosting
+
+
+STEP 2: Access Your Site
+--------------------------
+After deployment, visit:
+https://community-complaint-syst-73dc7.web.app
+
+
+================================================================================
+IMPORTANT: Backend API
+================================================================================
+
+⚠️  Firebase Hosting is STATIC ONLY (HTML, CSS, JS)
+
+Your Flask backend (app.py) needs separate hosting:
+
+FREE OPTIONS:
+1. Render.com - https://render.com (Recommended)
+2. Railway.app - https://railway.app
+3. PythonAnywhere - https://pythonanywhere.com
+
+After deploying Flask backend:
+- Update API endpoints in static/script.js
+- Change from: fetch('/api/endpoint')
+- To: fetch('https://your-backend-url.com/api/endpoint')
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: "Python not found"
+Solution: Install Python from python.org
+          Or use: prepare-firebase.bat (manual method)
+
+Problem: "firebase not found"
+Solution: npm install -g firebase-tools
+
+Problem: Templates show {{ }} syntax
+Solution: Run: python convert-templates.py
+          This converts Flask syntax to static paths
+
+Problem: CSS/JS not loading
+Solution: Check that files are in public/static/
+          Verify paths in templates use /static/ not url_for()
+
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+Prepare files:    python convert-templates.py
+Deploy:          firebase deploy --only hosting
+Check status:     firebase hosting:channel:list
+View logs:        firebase hosting:channel:open
+
+
+================================================================================
+

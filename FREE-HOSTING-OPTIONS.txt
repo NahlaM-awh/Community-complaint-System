@@ -1,0 +1,101 @@
+================================================================================
+FREE HOSTING OPTIONS FOR FLASK BACKEND
+================================================================================
+
+Since Firebase Functions requires a paid plan, here are FREE alternatives
+for hosting your Flask backend:
+
+================================================================================
+OPTION 1: RENDER (RECOMMENDED - EASIEST)
+================================================================================
+
+1. Go to: https://render.com
+2. Sign up with GitHub (free)
+3. Click "New +" → "Web Service"
+4. Connect your GitHub repository
+5. Settings:
+   - Name: community-complaint-system
+   - Environment: Python 3
+   - Build Command: pip install -r requirements.txt
+   - Start Command: python app.py
+6. Deploy!
+
+Your Flask app will be at: https://your-app.onrender.com
+
+Then update static/script.js to use this URL for API calls.
+
+================================================================================
+OPTION 2: RAILWAY
+================================================================================
+
+1. Go to: https://railway.app
+2. Sign up with GitHub
+3. Click "New Project" → "Deploy from GitHub"
+4. Select your repository
+5. Railway auto-detects Python
+6. Deploy!
+
+Free tier: $5 credit/month
+
+================================================================================
+OPTION 3: PYTHONANYWHERE (FREE TIER)
+================================================================================
+
+1. Go to: https://www.pythonanywhere.com
+2. Sign up (free account)
+3. Upload your files via web interface
+4. Configure web app
+5. Deploy!
+
+Free tier: Limited but works for small apps
+
+================================================================================
+OPTION 4: HEROKU (FREE TIER ENDED, BUT STILL CHEAP)
+================================================================================
+
+1. Go to: https://heroku.com
+2. Sign up
+3. Install Heroku CLI
+4. Deploy with: git push heroku main
+
+Note: Free tier ended, but has low-cost options
+
+================================================================================
+UPDATING YOUR FRONTEND TO USE BACKEND URL
+================================================================================
+
+After deploying Flask backend, update static/script.js:
+
+Change from:
+  fetch('/api/endpoint')
+
+To:
+  fetch('https://your-backend-url.com/api/endpoint')
+
+Or create a config file:
+  const API_BASE_URL = 'https://your-backend-url.com';
+  fetch(`${API_BASE_URL}/api/endpoint`)
+
+================================================================================
+CURRENT SETUP (STATIC HOSTING ONLY)
+================================================================================
+
+Right now, you can deploy static files to Firebase Hosting (FREE):
+
+1. Run: deploy.bat
+2. This deploys only static files (HTML, CSS, JS)
+3. Your site will be at: https://community-complaint-syst-73dc7.web.app
+
+But the Flask backend won't work until you deploy it separately.
+
+================================================================================
+RECOMMENDED APPROACH
+================================================================================
+
+1. Deploy Flask backend to Render (FREE)
+2. Deploy static files to Firebase Hosting (FREE)
+3. Update API endpoints in static/script.js
+4. Everything works for FREE!
+
+================================================================================
+
